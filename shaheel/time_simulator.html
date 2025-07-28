@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>World Time - Time.is Style with Map</title>
+  <style>
+    /* Background & overlay */
+    body {
+      margin: 0;
+      padding: 2em;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      z-index: 0;
+    }
+
+    /* Dark overlay for readability */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(30, 30, 30, 0.75);
+      z-index: -1;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.2em;
+      text-shadow: 0 0 8px #000;
+    }
+
+    #local-time {
+      background: rgba(44, 44, 44, 0.85);
+      padding: 1.5em 3em;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 2em;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.7);
+    }
+
+    #local-time .city-name {
+      font-size: 1.8em;
+      margin-bottom: 0.3em;
+      text-shadow: 0 0 6px #000;
+    }
+
+    #local-time .city-clock {
+      font-size: 3.5em;
+      font-weight: bold;
+      text-shadow: 0 0 10px #000;
+    }
+
+    #local-time .timezone-info {
+      font-size: 1em;
+      color: #ccc;
+      text-shadow: 0 0 4px #000;
+    }
+
+    .clock-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2em;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .city-time {
+      background: rgba(44, 44, 44, 0.85);
+      padding: 1em 2em;
+      border-radius: 10px;
+      text-align: center;
+      min-width: 220px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease;
+    }
+
+    .city-time:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255,255,255,0.8);
+    }
+
+    .city-name {
+      font-size: 1.5em;
+      margin-bottom: 0.5em;
+      text-shadow: 0 0 5px #000;
+    }
+
+    .city-clock {
+      font-size: 2em;
+      font-weight: bold;
+      text-shadow: 0 0 6px #000;
+    }
+
+    .timezone-info {
+      font-size: 0.9em;
+      color: #bbb;
+      text-shadow: 0 0 3px #000;
+    }
+  </style>
+</head>
+<body>
+  <h1>World Time</h1>
+
+  <div id="local-time">
+    <div class="city-name">Your Local Time</div>
+    <div class="city-clock" id="local-clock">--:--:--</div>
+    <div class="timezone-info" id="local-zone">Loading...</div>
+  </div>
+
+  <div class="clock-container" id="world-clocks"></div>
+
+  <script>
+   const cities = [
+  { name: "New York", timeZone: "America/New_York" },
+  { name: "Los Angeles", timeZone: "America/Los_Angeles" },
+  { name: "Toronto", timeZone: "America/Toronto" },
+  { name: "London", timeZone: "Europe/London" },
+  { name: "Paris", timeZone: "Europe/Paris" },
+  { name: "Berlin", timeZone: "Europe/Berlin" },
+  { name: "Moscow", timeZone: "Europe/Moscow" },
+  { name: "Dubai", timeZone: "Asia/Dubai" },
+  { name: "Mumbai", timeZone: "Asia/Kolkata" },
+  { name: "Bangkok", timeZone: "Asia/Bangkok" },
+  { name: "Tokyo", timeZone: "Asia/Tokyo" },
+  { name: "Sydney", timeZone: "Australia/Sydney" },
+  { name: "São Paulo", timeZone: "America/Sao_Paulo" },
+  { name: "Cape Town", timeZone: "Africa/Johannesburg" }
+];
+
+
+    function getOffsetString(date, timeZone) {
+      const tzDate = new Date(date.toLocaleString("en-US", { timeZone }));
+      const offsetMinutes = (date - tzDate) / 60000;
+      const offsetHours = -offsetMinutes / 60;
+      return `UTC ${offsetHours >= 0 ? '+' : ''}${offsetHours}`;
+    }
+
+    function updateClocks() {
+      const now = new Date();
+      const localZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const localTime = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      const localOffset = getOffsetString(now, localZone);
+
+      // Update local time display
+      document.getElementById('local-clock').textContent = localTime;
+      document.getElementById('local-zone').textContent = `${localZone} (${localOffset})`;
+
+      // Update world clocks
+      const container = document.getElementById('world-clocks');
+      container.innerHTML = '';
+
+      cities.forEach(city => {
+        const timeString = now.toLocaleTimeString('en-GB', {
+          timeZone: city.timeZone,
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit'
+        });
+
+        const offset = getOffsetString(now, city.timeZone);
+
+        const cityDiv = document.createElement('div');
+        cityDiv.className = 'city-time';
+        cityDiv.innerHTML = `
+          <div class="city-name">${city.name}</div>
+          <div class="city-clock">${timeString}</div>
+          <div class="timezone-info">${city.timeZone} (${offset})</div>
+        `;
+
+        container.appendChild(cityDiv);
+      });
+    }
+
+    updateClocks();
+    setInterval(updateClocks, 1000);
+  </script>
+</body>
+</html>
