@@ -1,257 +1,654 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML Tags Chart</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background: #fefefe;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 40px;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      vertical-align: top;
-    }
-    th {
-      background-color: #eee;
-      text-align: left;
-    }
-    code {
-      display: block;
-      background: #f9f9f9;
-      padding: 8px;
-      white-space: pre-wrap;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Tool</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font for a cleaner look */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom scrollbar styling for the table container */
+        .table-container::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+
+        .table-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .table-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        .table-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Styles for clickable table rows */
+        .clickable-row {
+            cursor: pointer;
+            transition: background-color 0.15s ease-in-out;
+        }
+
+        .clickable-row:hover {
+            background-color: #f3f4f6; /* A light gray on hover */
+        }
+    </style>
 </head>
-<body>
-  <h1>HTML Tags Chart</h1>
-  <p>To use any of the following HTML tags, simply select the HTML code you'd like and copy and paste it into your web page.</p>
+<body class="bg-gray-50 flex items-center justify-center min-h-screen p-4">
+    <!-- Main container matching the image layout, now with a dedicated scrollable area for the table -->
+    <div class="bg-white rounded-xl shadow-lg w-full max-w-7xl flex flex-col md:flex-row h-[90vh] overflow-hidden">
 
-  <table>
-    <tr>
-      <th>Tag Name</th>
-      <th>Code Example</th>
-      <th>Browser View</th>
-    </tr>
-    <tr>
-      <td>&lt;!-- comment --&gt;</td>
-      <td><code>&lt;!--This can be viewed in the HTML part of a document--&gt;</code></td>
-      <td>Nothing will show</td>
-    </tr>
-    <tr>
-      <td>&lt;a&gt; - anchor</td>
-      <td><code>&lt;a href="http://www.domain.com/"&gt;Visit Our Site&lt;/a&gt;</code></td>
-      <td><a href="http://www.domain.com/">Visit Our Site</a></td>
-    </tr>
-    <tr>
-      <td>&lt;b&gt; - bold</td>
-      <td><code>&lt;b&gt;Example&lt;/b&gt;</code></td>
-      <td><b>Example</b></td>
-    </tr>
-    <tr>
-      <td>&lt;big&gt;</td>
-      <td><code>&lt;big&gt;Example&lt;/big&gt;</code></td>
-      <td><big>Example</big></td>
-    </tr>
-    <tr>
-      <td>&lt;br&gt; - line break</td>
-      <td><code>The contents of your page&lt;br&gt;The contents of your page</code></td>
-      <td>The contents of your page<br>The contents of your page</td>
-    </tr>
-    <tr>
-      <td>&lt;center&gt;</td>
-      <td><code>&lt;center&gt;This will center your contents&lt;/center&gt;</code></td>
-      <td><center>This will center your contents</center></td>
-    </tr>
-    <tr>
-      <td>&lt;dd&gt;, &lt;dt&gt;, &lt;dl&gt;</td>
-      <td><code>&lt;dl&gt;
-  &lt;dt&gt;Definition Term&lt;/dt&gt;
-  &lt;dd&gt;Definition of the term&lt;/dd&gt;
-&lt;/dl&gt;</code></td>
-      <td>
-        <dl>
-          <dt>Definition Term</dt>
-          <dd>Definition of the term</dd>
-        </dl>
-      </td>
-    </tr>
-    <tr>
-      <td>&lt;em&gt;</td>
-      <td><code>This is an &lt;em&gt;Example&lt;/em&gt; of using the emphasis tag</code></td>
-      <td>This is an <em>Example</em> of using the emphasis tag</td>
-    </tr>
-    <tr>
-      <td>&lt;embed&gt;</td>
-      <td><code>&lt;embed src=&quot;yourfile.mid&quot; width=&quot;100%&quot; height=&quot;60&quot;&gt;</code></td>
-      <td><em>Audio embed not supported here</em></td>
-    </tr>
-    <tr>
-      <td>&lt;font&gt;</td>
-      <td><code>&lt;font face="Times New Roman" size="4" color="#ff0000"&gt;Example&lt;/font&gt;</code></td>
-      <td><font face="Times New Roman" size="4" color="#ff0000">Example</font></td>
-    </tr>
-    <tr>
-      <td>&lt;form&gt;</td>
-      <td><code>
-&lt;form action="mailto:you@yourdomain.com"&gt;
-  Name: &lt;input name="Name" size="10"&gt;&lt;br&gt;
-  Email: &lt;input name="Email" size="10"&gt;&lt;br&gt;
-  &lt;center&gt;&lt;input type="submit"&gt;&lt;/center&gt;
-&lt;/form&gt;</code></td>
-      <td>
-        <form action="mailto:you@yourdomain.com">
-          Name: <input name="Name" size="10"><br>
-          Email: <input name="Email" size="10"><br>
-          <center><input type="submit"></center>
-        </form>
-      </td>
-    </tr>
-    <tr>
-      <td>&lt;h1&gt; to &lt;h6&gt;</td>
-      <td><code>
-&lt;h1&gt;Heading 1&lt;/h1&gt;
-&lt;h2&gt;Heading 2&lt;/h2&gt;
-&lt;h3&gt;Heading 3&lt;/h3&gt;
-&lt;h4&gt;Heading 4&lt;/h4&gt;
-&lt;h5&gt;Heading 5&lt;/h5&gt;
-&lt;h6&gt;Heading 6&lt;/h6&gt;
-</code></td>
-      <td>
-        <h1>Heading 1</h1>
-        <h2>Heading 2</h2>
-        <h3>Heading 3</h3>
-        <h4>Heading 4</h4>
-        <h5>Heading 5</h5>
-        <h6>Heading 6</h6>
-      </td>
-    </tr>
-    <tr>
-      <td>&lt;hr&gt;</td>
-      <td><code>&lt;hr&gt;</code></td>
-      <td><hr></td>
-    </tr>
-    <tr>
-      <td>&lt;i&gt;</td>
-      <td><code>&lt;i&gt;Example&lt;/i&gt;</code></td>
-      <td><i>Example</i></td>
-    </tr>
-    <tr>
-      <td>&lt;img&gt;</td>
-      <td><code>&lt;img src="https://via.placeholder.com/41" alt="Image example" /&gt;</code></td>
-      <td><img src="https://via.placeholder.com/41" alt="Image example"></td>
-    </tr>
-    <tr>
-      <td>&lt;input&gt;</td>
-      <td><code>
-&lt;form&gt;
-  &lt;input type="text" size="10" maxlength="30"&gt;
-  &lt;input type="submit" value="Submit"&gt;
-&lt;/form&gt;</code></td>
-      <td>
-        <form>
-          <input type="text" size="10" maxlength="30">
-          <input type="submit" value="Submit">
-        </form>
-      </td>
-    </tr>
-    <tr>
-      <td>&lt;li&gt;, &lt;ol&gt;, &lt;ul&gt;</td>
-      <td><code>
-&lt;ul&gt;
-  &lt;li&gt;Item 1&lt;/li&gt;
-  &lt;li&gt;Item 2&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol type="a"&gt;
-  &lt;li&gt;Item A&lt;/li&gt;
-  &lt;li&gt;Item B&lt;/li&gt;
-&lt;/ol&gt;</code></td>
-      <td>
-        <ul>
-          <li>Item 1</li>
-          <li>Item 2</li>
-        </ul>
-        <ol type="a">
-          <li>Item A</li>
-          <li>Item B</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td>&lt;marquee&gt;</td>
-      <td><code>&lt;marquee&gt;Scrolling text&lt;/marquee&gt;</code></td>
-      <td><marquee>Scrolling text</marquee></td>
-    </tr>
-    <tr>
-      <td>&lt;meta&gt;</td>
-      <td><code>&lt;meta name="description" content="Site description"&gt;</code></td>
-      <td>Nothing will show</td>
-    </tr>
-    <tr>
-      <td>&lt;p&gt;</td>
-      <td><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></td>
-      <td><p>This is a paragraph.</p></td>
-    </tr>
-    <tr>
-      <td>&lt;small&gt;</td>
-      <td><code>&lt;small&gt;Example&lt;/small&gt;</code></td>
-      <td><small>Example</small></td>
-    </tr>
-    <tr>
-      <td>&lt;strike&gt;</td>
-      <td><code>&lt;strike&gt;Example&lt;/strike&gt;</code></td>
-      <td><strike>Example</strike></td>
-    </tr>
-    <tr>
-      <td>&lt;strong&gt;</td>
-      <td><code>&lt;strong&gt;Example&lt;/strong&gt;</code></td>
-      <td><strong>Example</strong></td>
-    </tr>
-    <tr>
-      <td>&lt;table&gt;, &lt;tr&gt;, &lt;td&gt;, &lt;th&gt;</td>
-      <td><code>
-&lt;table border="1"&gt;
-  &lt;tr&gt;
-    &lt;th&gt;Header 1&lt;/th&gt;
-    &lt;th&gt;Header 2&lt;/th&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td&gt;Cell 1&lt;/td&gt;
-    &lt;td&gt;Cell 2&lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/table&gt;</code></td>
-      <td>
-        <table border="1">
-          <tr><th>Header 1</th><th>Header 2</th></tr>
-          <tr><td>Cell 1</td><td>Cell 2</td></tr>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td>&lt;tt&gt;</td>
-      <td><code>&lt;tt&gt;Example&lt;/tt&gt;</code></td>
-      <td><tt>Example</tt></td>
-    </tr>
-    <tr>
-      <td>&lt;u&gt;</td>
-      <td><code>&lt;u&gt;Example&lt;/u&gt;</code></td>
-      <td><u>Example</u></td>
-    </tr>
-  </table>
+        <!-- Left side - Main Table section with its own scrollbar -->
+        <div class="flex-1 flex flex-col p-6 overflow-y-auto">
+            <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">Demo Tool</h1>
+            
+            <!-- Table Container with horizontal scrolling on smaller screens -->
+            <div class="flex-1 overflow-x-auto table-container">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50 sticky top-0">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider w-1/12">Tags</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider w-1/6">Name</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider w-1/4">Code Example</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider w-5/12">Browser View</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body" class="bg-white divide-y divide-gray-200 text-sm text-gray-700">
+                        <!-- Table rows will be dynamically populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-  <p><em>This table includes a selection of tags. More can be added if needed.</em></p>
+        <!-- Right side - Example and Code section (this part is now static) -->
+        <div class="w-full md:w-80 bg-gray-100 p-6 flex flex-col md:border-l border-gray-200 flex-shrink-0">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">Example</h2>
+            <div id="example-content" class="bg-white rounded-lg border border-gray-300 p-4 mb-6 min-h-[100px] flex items-center justify-center">
+                <!-- Example content will be dynamically updated here -->
+            </div>
+
+            <h2 class="text-xl font-bold text-gray-800 mb-4">Code</h2>
+            <div class="bg-gray-200 rounded-lg border border-gray-300 p-4 font-mono text-xs text-gray-700 overflow-x-auto">
+                <pre id="code-content" class="whitespace-pre-wrap"></pre>
+                <!-- Code example will be dynamically updated here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data for each row in the table, including the content for the example and code panels.
+        const tableData = [
+            {
+                tag: '&lt;!--',
+                name: 'comment',
+                codeExample: '&lt;!--This can be viewed in the HTML part of a document--&gt;',
+                browserView: 'Nothing will show (Tip)',
+                exampleHtml: 'Nothing will show (Tip)',
+                codeHtml: '&lt;!--This can be viewed in the HTML part of a document--&gt;'
+            },
+            {
+                tag: '&lt;a&gt;',
+                name: 'anchor',
+                codeExample: '&lt;a href="http://www.domain.com/"&gt;Visit Our Site&lt;/a&gt;',
+                browserView: 'Visit Our Site (Tip)',
+                exampleHtml: '<a href="#" class="text-blue-600 hover:underline">Visit Our Site</a> (Tip)',
+                codeHtml: '&lt;a href="http://www.domain.com/"&gt;\n  Visit Our Site&lt;/a&gt;'
+            },
+            {
+                tag: '&lt;b&gt;',
+                name: 'bold',
+                codeExample: '&lt;b&gt;Example&lt;/b&gt;',
+                browserView: 'Example',
+                exampleHtml: '<span class="font-bold">Example</span>',
+                codeHtml: '&lt;b&gt;Example&lt;/b&gt;'
+            },
+            {
+                tag: '&lt;big&gt;',
+                name: 'big (text)',
+                codeExample: '&lt;big&gt;Example&lt;/big&gt;',
+                browserView: 'Example (Tip)',
+                exampleHtml: '<span class="text-lg">Example (Tip)</span>',
+                codeHtml: '&lt;big&gt;Example&lt;/big&gt;'
+            },
+            {
+                tag: '&lt;body&gt;',
+                name: 'body of HTML document',
+                codeExample: '&lt;body&gt;The content of your HTML page&lt;/body&gt;',
+                browserView: 'Contents of your web page (Tip)',
+                exampleHtml: 'Contents of your web page (Tip)',
+                codeHtml: '&lt;body&gt;The content of\n your HTML page&lt;/body&gt;'
+            },
+            {
+                tag: '&lt;br&gt;',
+                name: 'line break',
+                codeExample: 'The contents of your page&lt;br&gt;The contents of your page',
+                browserView: 'The contents of your web page<br>The contents of your web page',
+                exampleHtml: 'The contents of your web page<br>The contents of your web page',
+                codeHtml: 'The contents of your page&lt;br&gt;The contents\n of your page'
+            },
+            {
+                tag: '&lt;center&gt;',
+                name: 'center',
+                codeExample: '&lt;center&gt;This will center your contents&lt;/center&gt;',
+                browserView: 'This will center your contents',
+                exampleHtml: '<p class="text-center">This will center your contents</p>',
+                codeHtml: '&lt;center&gt;This will center your contents&lt;/center&gt;'
+            },
+            {
+                tag: '&lt;dd&gt;',
+                name: 'definition description',
+                codeExample: '&lt;dl&gt;&lt;dt&gt;Definition Term&lt;/dt&gt;&lt;dd&gt;Definition of the term&lt;/dd&gt;&lt;/dl&gt;',
+                browserView: 'Definition Term\nDefinition of the term\nDefinition Term\nDefinition of the term',
+                exampleHtml: '<dl><dt class="font-semibold text-gray-800">Definition Term</dt><dd class="ml-4 text-gray-600">Definition of the term</dd><dt class="font-semibold mt-2 text-gray-800">Definition Term</dt><dd class="ml-4 text-gray-600">Definition of the term</dd></dl>',
+                codeHtml: '&lt;dl&gt;\n  &lt;dt&gt;Definition Term&lt;/dt&gt;\n  &lt;dd&gt;Definition of the term&lt;/dd&gt;\n  &lt;dt&gt;Definition Term&lt;/dt&gt;\n  &lt;dd&gt;Definition of the term&lt;/dd&gt;\n&lt;/dl&gt;'
+            },
+            {
+                tag: '&lt;dl&gt;',
+                name: 'definition list',
+                codeExample: '&lt;dl&gt;&lt;dt&gt;...&lt;/dt&gt;&lt;dd&gt;...&lt;/dd&gt;&lt;/dl&gt;',
+                browserView: 'Definition Term\nDefinition of the term\nDefinition Term\nDefinition of the term',
+                exampleHtml: '<dl><dt class="font-semibold">Definition Term</dt><dd class="ml-4">Definition of the term</dd><dt class="font-semibold mt-2">Definition Term</dt><dd class="ml-4">Definition of the term</dd></dl>',
+                codeHtml: '&lt;dl&gt;\n  &lt;dt&gt;Definition Term&lt;/dt&gt;\n  &lt;dd&gt;Definition of the term&lt;/dd&gt;\n  &lt;dt&gt;Definition Term&lt;/dt&gt;\n  &lt;dd&gt;Definition of the term&lt;/dd&gt;\n&lt;/dl&gt;'
+            },
+            {
+                tag: '&lt;dt&gt;',
+                name: 'definition term',
+                codeExample: '&lt;dl&gt;&lt;dt&gt;Definition Term&lt;/dt&gt;&lt;dd&gt;...&lt;/dd&gt;&lt;/dl&gt;',
+                browserView: 'Definition Term\nDefinition of the term\nDefinition Term\nDefinition of the term',
+                exampleHtml: '<dl><dt class="font-semibold">Definition Term</dt><dd class="ml-4">Definition of the term</dd><dt class="font-semibold mt-2">Definition Term</dt><dd class="ml-4">Definition of the term</dd></dl>',
+                codeHtml: '&lt;dl&gt;\n  &lt;dt&gt;Definition Term&lt;/dt&gt;\n  &lt;dd&gt;Definition of the term&lt;/dd&gt;\n  &lt;dt&gt;Definition Term&lt;/dt&gt;\n  &lt;dd&gt;Definition of the term&lt;/dd&gt;\n&lt;/dl&gt;'
+            },
+            {
+                tag: '&lt;em&gt;',
+                name: 'emphasis',
+                codeExample: 'This is an &lt;em&gt;Example&lt;/em&gt; of using the emphasis tag',
+                browserView: 'This is an Example of using the emphasis tag',
+                exampleHtml: 'This is an <em>Example</em> of using the emphasis tag',
+                codeHtml: 'This is an &lt;em&gt;Example&lt;/em&gt; of using\n the emphasis tag'
+            },
+            {
+                tag: '&lt;embed&gt;',
+                name: 'embed object',
+                codeExample: '&lt;embed src="yourfile.mid" width="100%" height="60" align="center"&gt;',
+                browserView: '(Tip)',
+                exampleHtml: '(Tip)',
+                codeHtml: '&lt;embed src="yourfile.mid" width="100%"\n height="60" align="center"&gt;'
+            },
+            {
+                tag: '&lt;embed&gt;',
+                name: 'embed object',
+                codeExample: '&lt;embed src="yourfile.mid" autostart="true" hidden="false" loop="false"&gt; &lt;noembed&gt;&lt;bgsound src="yourfile.mid" loop="1"&gt;&lt;/noembed&gt;',
+                browserView: 'Music will begin playing when your page is loaded and will only play one time. A control panel will be displayed to enable your visitors to stop the music.',
+                exampleHtml: 'Music will begin playing when your page is loaded and will only play one time. A control panel will be displayed to enable your visitors to stop the music.',
+                codeHtml: '&lt;embed src="yourfile.mid" autostart="true"\n hidden="false" loop="false"&gt;\n &lt;noembed&gt;&lt;bgsound src="yourfile.mid"\n loop="1"&gt;&lt;/noembed&gt;'
+            },
+            {
+                tag: '&lt;font&gt;',
+                name: 'font',
+                codeExample: '&lt;font face="Times New Roman"&gt;Example&lt;/font&gt;',
+                browserView: 'Example (Tip)',
+                exampleHtml: '<span class="font-serif">Example (Tip)</span>',
+                codeHtml: '&lt;font face="Times New\n Roman"&gt;Example&lt;/font&gt;'
+            },
+            {
+                tag: '&lt;font&gt;',
+                name: 'font',
+                codeExample: '&lt;font face="Times New Roman" size="4"&gt;Example&lt;/font&gt;',
+                browserView: 'Example (Tip)',
+                exampleHtml: '<span style="font-family: \'Times New Roman\'; font-size: 1.25rem;">Example (Tip)</span>',
+                codeHtml: '&lt;font face="Times New Roman"\n size="4"&gt;Example&lt;/font&gt;'
+            },
+            {
+                tag: '&lt;font&gt;',
+                name: 'font',
+                codeExample: '&lt;font face="Times New Roman" size="+3" color="#ff0000"&gt;Example&lt;/font&gt;',
+                browserView: 'Example (Tip)',
+                exampleHtml: '<span style="font-family: \'Times New Roman\'; font-size: 1.5rem; color: #ff0000;">Example (Tip)</span>',
+                codeHtml: '&lt;font face="Times New Roman" size="+3"\n color="#ff0000"&gt;Example&lt;/font&gt;'
+            },
+            {
+                tag: '&lt;form&gt;',
+                name: 'form',
+                codeExample: 'Name: &lt;input name="Name" value="" size="10"&gt;&lt;br&gt; Email: &lt;input name="Email" value="" size="10"&gt;&lt;br&gt; &lt;center&gt;&lt;input type="submit"&gt;&lt;/center&gt; &lt;/form&gt;',
+                browserView: 'Name: <br>Email: <br>Submit',
+                exampleHtml: 'Name: <input type="text" name="Name" value="" size="10" class="border rounded px-1"><br> Email: <input type="text" name="Email" value="" size="10" class="border rounded px-1"><br> <div class="text-center mt-2"><button type="submit" class="bg-blue-500 text-white rounded px-3 py-1 text-sm shadow">Submit</button></div>',
+                codeHtml: 'Name: &lt;input name="Name" value=""\n size="10"&gt;&lt;br&gt;\n Email: &lt;input name="Email" value=""\n size="10"&gt;&lt;br&gt;\n &lt;center&gt;&lt;input type="submit"&gt;&lt;/center&gt;\n &lt;/form&gt;'
+            },
+            {
+                tag: '&lt;h1&gt;',
+                name: 'heading 1',
+                codeExample: '&lt;h1&gt;Heading 1 Example&lt;/h1&gt;',
+                browserView: 'Heading 1',
+                exampleHtml: '<h1 class="text-4xl font-bold">Heading 1</h1>',
+                codeHtml: '&lt;h1&gt;Heading 1 Example&lt;/h1&gt;'
+            },
+            {
+                tag: '&lt;h2&gt;',
+                name: 'heading 2',
+                codeExample: '&lt;h2&gt;Heading 2 Example&lt;/h2&gt;',
+                browserView: 'Heading 2',
+                exampleHtml: '<h2 class="text-3xl font-bold">Heading 2</h2>',
+                codeHtml: '&lt;h2&gt;Heading 2 Example&lt;/h2&gt;'
+            },
+            {
+                tag: '&lt;h3&gt;',
+                name: 'heading 3',
+                codeExample: '&lt;h3&gt;Heading 3 Example&lt;/h3&gt;',
+                browserView: 'Heading 3',
+                exampleHtml: '<h3 class="text-2xl font-bold">Heading 3</h3>',
+                codeHtml: '&lt;h3&gt;Heading 3 Example&lt;/h3&gt;'
+            },
+            {
+                tag: '&lt;h4&gt;',
+                name: 'heading 4',
+                codeExample: '&lt;h4&gt;Heading 4 Example&lt;/h4&gt;',
+                browserView: 'Heading 4',
+                exampleHtml: '<h4 class="text-xl font-bold">Heading 4</h4>',
+                codeHtml: '&lt;h4&gt;Heading 4 Example&lt;/h4&gt;'
+            },
+            {
+                tag: '&lt;h5&gt;',
+                name: 'heading 5',
+                codeExample: '&lt;h5&gt;Heading 5 Example&lt;/h5&gt;',
+                browserView: 'Heading 5',
+                exampleHtml: '<h5 class="text-lg font-bold">Heading 5</h5>',
+                codeHtml: '&lt;h5&gt;Heading 5 Example&lt;/h5&gt;'
+            },
+            {
+                tag: '&lt;h6&gt;',
+                name: 'heading 6',
+                codeExample: '&lt;h6&gt;Heading 6 Example&lt;/h6&gt;',
+                browserView: 'Heading 6',
+                exampleHtml: '<h6 class="text-base font-bold">Heading 6</h6>',
+                codeHtml: '&lt;h6&gt;Heading 6 Example&lt;/h6&gt;'
+            },
+            {
+                tag: '&lt;head&gt;',
+                name: 'heading of HTML document',
+                codeExample: '&lt;head&gt;Contains elements describing the document&lt;/head&gt;',
+                browserView: 'Nothing will show',
+                exampleHtml: 'Nothing will show',
+                codeHtml: '&lt;head&gt;Contains elements describing the\n document&lt;/head&gt;'
+            },
+            {
+                tag: '&lt;hr&gt;',
+                name: 'horizontal rule',
+                codeExample: '&lt;hr /&gt;',
+                browserView: 'Contents of your web page',
+                exampleHtml: '<p>Contents of your web page</p><hr class="my-4">',
+                codeHtml: '&lt;hr /&gt;'
+            },
+            {
+                tag: '&lt;hr&gt;',
+                name: 'horizontal rule',
+                codeExample: '&lt;hr width="50%" size="3"/&gt;',
+                browserView: 'Contents of your web page',
+                exampleHtml: '<p>Contents of your web page</p><hr class="my-4 border-t-2 border-gray-400 w-1/2 mx-auto">',
+                codeHtml: '&lt;hr width="50%" size="3"/&gt;'
+            },
+            {
+                tag: '&lt;hr&gt;',
+                name: 'horizontal rule',
+                codeExample: '&lt;hr width="50%" size="3" noshade /&gt;',
+                browserView: 'Contents of your web page',
+                exampleHtml: '<p>Contents of your web page</p><hr class="my-4 border-t-2 border-gray-400 w-1/2 mx-auto" style="border-style: solid;">',
+                codeHtml: '&lt;hr width="50%" size="3" noshade /&gt;'
+            },
+            {
+                tag: '&lt;hr&gt;',
+                name: 'horizontal rule (Internet Explorer)',
+                codeExample: '&lt;hr width="75%" color="#ff0000" size="4"/&gt;',
+                browserView: 'Contents of your web page',
+                exampleHtml: '<p>Contents of your web page</p><hr class="my-4 w-3/4 mx-auto" style="border-top: 4px solid #ff0000; border-radius: 2px;">',
+                codeHtml: '&lt;hr width="75%" color="#ff0000" size="4"\n /&gt;'
+            },
+            {
+                tag: '&lt;hr&gt;',
+                name: 'horizontal rule (Internet Explorer)',
+                codeExample: '&lt;hr width="25%" color="#6699ff" size="6"/&gt;',
+                browserView: 'Contents of your web page',
+                exampleHtml: '<p>Contents of your web page</p><hr class="my-4 w-1/4 mx-auto" style="border-top: 6px solid #6699ff; border-radius: 3px;">',
+                codeHtml: '&lt;hr width="25%" color="#6699ff" size="6"\n /&gt;'
+            },
+            {
+                tag: '&lt;html&gt;',
+                name: 'hypertext markup language',
+                codeExample: '&lt;html&gt;&lt;head&gt;&lt;meta&gt;&lt;title&gt;Title of your web page&lt;/title&gt;&lt;/head&gt;&lt;body&gt;HTML web page contents&lt;/body&gt;&lt;/html&gt;',
+                browserView: 'Contents of your web page',
+                exampleHtml: 'Contents of your web page',
+                codeHtml: '&lt;html&gt;\n &lt;head&gt;\n &lt;meta&gt;\n &lt;title&gt;Title of your web page&lt;/title&gt;\n &lt;/head&gt;\n &lt;body&gt;HTML web page contents\n &lt;/body&gt;\n &lt;/html&gt;'
+            },
+            {
+                tag: '&lt;i&gt;',
+                name: 'italic',
+                codeExample: '&lt;i&gt;Example&lt;/i&gt;',
+                browserView: 'Example',
+                exampleHtml: '<i>Example</i>',
+                codeHtml: '&lt;i&gt;Example&lt;/i&gt;'
+            },
+            {
+                tag: '&lt;img&gt;',
+                name: 'image',
+                codeExample: '&lt;img src="Earth.gif" width="41" height="41" border="0" alt="text describing the image" /&gt;',
+                browserView: '(Tip)',
+                exampleHtml: '(Tip)',
+                codeHtml: '&lt;img src="Earth.gif" width="41"\n height="41" border="0" alt="text describing\n the image" /&gt;'
+            },
+            {
+                tag: '&lt;input&gt;',
+                name: 'input field',
+                codeExample: '<form method=post action="/cgi-bin/example.cgi"> <input type="text" size="10" maxlength="30"> <input type="Submit" value="Submit"> </form>',
+                browserView: 'Submit',
+                exampleHtml: '<form><input type="text" size="10" maxlength="30" class="border rounded px-1"><button type="submit" class="bg-blue-500 text-white rounded px-3 py-1 text-sm ml-2 shadow">Submit</button></form>',
+                codeHtml: '&lt;form method=post action="/cgi-\n bin/example.cgi"&gt;\n &lt;input type="text" size="10"\n maxlength="30"&gt;\n &lt;input type="Submit" value="Submit"&gt;\n &lt;/form&gt;'
+            },
+            {
+                tag: '&lt;input&gt;',
+                name: 'input field',
+                codeExample: '<form method=post action="/cgi-bin/example.cgi"> <input type="text" style="color: #ffffff; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #72a4d2;" size="10" maxlength="30"> <input type="Submit" value="Submit"> </form>',
+                browserView: 'Submit',
+                exampleHtml: '<form><input type="text" style="color: #ffffff; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #72a4d2;" size="10" maxlength="30" class="border rounded px-1"><button type="submit" class="bg-blue-500 text-white rounded px-3 py-1 text-sm ml-2 shadow">Submit</button></form>',
+                codeHtml: '&lt;form method=post action="/cgi-\n bin/example.cgi"&gt;\n &lt;input type="text" style="color: #ffffff;\n font-family: Verdana; font-weight: bold; font-\n size: 12px; background-color: #72a4d2;"\n size="10" maxlength="30"&gt;\n &lt;input type="Submit" value="Submit"&gt;\n &lt;/form&gt;'
+            },
+            {
+                tag: '&lt;input&gt;',
+                name: 'input field',
+                codeExample: '<form method=post action="/cgi-bin/example.cgi"> <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#8463ff"><input type="text" size="10" maxlength="30"></td><td bgcolor="#8463ff" valign="Middle"> <input type="image" name="submit" src="yourimage.gif"></td></tr> </table> </form>',
+                browserView: 'GO',
+                exampleHtml: '<form><div class="flex items-center"><input type="text" size="10" maxlength="30" class="border rounded px-1"><img src="https://placehold.co/40x20/8463ff/ffffff?text=GO" class="ml-2 rounded" alt="Go button"></div></form>',
+                codeHtml: '&lt;form method=post action="/cgi-\n bin/example.cgi"&gt;\n &lt;table border="0" cellspacing="0"\n cellpadding="2"&gt;&lt;tr&gt;&lt;td\n bgcolor="#8463ff"&gt;&lt;input type="text"\n size="10" maxlength="30"&gt;&lt;/td&gt;&lt;td\n bgcolor="#8463ff" valign="Middle"&gt; &lt;input\n type="image" name="submit"\n src="yourimage.gif"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt;\n &lt;/form&gt;'
+            },
+            {
+                tag: '&lt;input&gt; &lt;input&gt;',
+                name: 'input field',
+                codeExample: 'Enter Your Comments:<br> <textarea wrap="virtual" name="Comments" rows 3 cols=20 maxlength=100></textarea><br> <input type="Submit" value="Submit"> <input type="Reset" value="Clear">',
+                browserView: 'Submit Clear',
+                exampleHtml: '<p>Enter Your Comments:</p><textarea wrap="virtual" name="Comments" rows="3" cols="20" maxlength="100" class="border rounded p-1"></textarea><br><button type="submit" class="bg-blue-500 text-white rounded px-3 py-1 text-sm mt-2 shadow">Submit</button> <button type="reset" class="bg-gray-300 text-gray-800 rounded px-3 py-1 text-sm mt-2 ml-2 shadow">Clear</button>',
+                codeHtml: 'Enter Your Comments:&lt;br&gt;\n &lt;textarea wrap="virtual" name="Comments"\n rows 3 cols=20\n maxlength=100&gt;&lt;/textarea&gt;&lt;br&gt;\n &lt;input type="Submit" value="Submit"&gt;\n &lt;input type="Reset" value="Clear"&gt;\n &lt;/form&gt;'
+            },
+            {
+                tag: '&lt;input&gt;',
+                name: 'input field',
+                codeExample: 'Select an option: <br> <input type="radio" name="option"> Option 1 <input type="radio" name="option" checked> Option 2 <input type="radio" name="option"> Option 3 <br>',
+                browserView: 'Select an option: Option 1 Option 2 Option 3',
+                exampleHtml: '<p>Select an option:</p><div><input type="radio" name="option" class="mr-1"> Option 1</div><div><input type="radio" name="option" checked class="mr-1"> Option 2</div><div><input type="radio" name="option" class="mr-1"> Option 3</div>',
+                codeHtml: 'Select an option: &lt;br&gt;\n &lt;input type="radio" name="option"&gt; Option\n 1\n &lt;input type="radio" name="option"\n checked&gt; Option 2\n &lt;input type="radio" name="option"&gt; Option\n 3\n &lt;br&gt;'
+            },
+            {
+                tag: '&lt;li&gt;',
+                name: 'list item',
+                codeExample: '<ol type="i"> <li>List item 1</li> <li>List item 2</li> <li>List item 3</li> <li>List item 4</li> </ol>',
+                browserView: 'i. List item 1\nii. List item 2\niii. List item 3\niv. List item 4',
+                exampleHtml: '<ol class="list-decimal list-inside" style="list-style-type: lower-roman;"><li class="list-item">List item 1</li><li class="list-item">List item 2</li><li class="list-item">List item 3</li><li class="list-item">List item 4</li></ol>',
+                codeHtml: '&lt;ol type="i"&gt;\n &lt;li&gt;List item 1&lt;/li&gt;\n &lt;li&gt;List item 2&lt;/li&gt;\n &lt;li&gt;List item 3&lt;/li&gt;\n &lt;li&gt;List item 4&lt;/li&gt;\n &lt;/ol&gt;'
+            },
+            {
+                tag: '&lt;link&gt;',
+                name: 'link',
+                codeExample: '&lt;head&gt; &lt;link rel="stylesheet" type="text/css" href="style.css" /&gt; &lt;/head&gt;',
+                browserView: '',
+                exampleHtml: 'This tag has no visible browser output.',
+                codeHtml: '&lt;head&gt;\n &lt;link rel="stylesheet" type="text/css"\n href="style.css" /&gt;\n &lt;/head&gt;'
+            },
+            {
+                tag: '&lt;marquee&gt;',
+                name: 'scrolling text (Internet Explorer)',
+                codeExample: '&lt;marquee bgcolor="#cccccc" loop="-1" scrollamount="2" width="100%"&gt;Example Marquee&lt;/marquee&gt;',
+                browserView: 'Example Marquee',
+                exampleHtml: '<marquee class="bg-gray-300 text-gray-800 p-2" loop="-1" scrollamount="2">Example Marquee</marquee>',
+                codeHtml: '&lt;marquee bgcolor="#cccccc" loop="-1"\n scrollamount="2" width="100%"&gt;Example\n Marquee&lt;/marquee&gt;'
+            },
+            {
+                tag: '&lt;menu&gt;',
+                name: 'menu',
+                codeExample: '&lt;menu&gt;&lt;li type="disc"&gt;List item 1&lt;/li&gt;&lt;li type="circle"&gt;List item 2&lt;/li&gt;&lt;li type="square"&gt;List item 3&lt;/li&gt;&lt;/menu&gt;',
+                browserView: 'List item 1\nList item 2\nList item 3',
+                exampleHtml: '<ul class="list-disc list-inside"><li class="list-item">List item 1</li><li class="list-item" style="list-style-type: circle;">List item 2</li><li class="list-item" style="list-style-type: square;">List item 3</li></ul>',
+                codeHtml: '&lt;menu&gt;\n &lt;li type="disc"&gt;List item 1&lt;/li&gt;\n &lt;li type="circle"&gt;List item 2&lt;/li&gt;\n &lt;li type="square"&gt;List item 3&lt;/li&gt;\n &lt;/menu&gt;'
+            },
+            {
+                tag: '&lt;meta&gt;',
+                name: 'meta',
+                codeExample: '&lt;meta name="Description" content="Description of your site"&gt;',
+                browserView: 'Nothing will show (Tip)',
+                exampleHtml: 'Nothing will show (Tip)',
+                codeHtml: '&lt;meta name="Description"\n content="Description of your site"&gt;'
+            },
+            {
+                tag: '&lt;meta&gt;',
+                name: 'meta',
+                codeExample: '&lt;meta HTTP-EQUIV="Refresh" CONTENT="4; URL=http//www.yourdomain.c:om/"&gt;',
+                browserView: 'Nothing will show (Tip)',
+                exampleHtml: 'Nothing will show (Tip)',
+                codeHtml: '&lt;meta HTTP-EQUIV="Refresh"\n CONTENT="4; URL=http//www.yourdomain.c :\n om/"&gt;'
+            },
+            {
+                tag: '&lt;meta&gt;',
+                name: 'meta',
+                codeExample: '&lt;meta http-equiv="Pragma" content="no-cache"&gt;',
+                browserView: 'Nothing will show (Tip)',
+                exampleHtml: 'Nothing will show (Tip)',
+                codeHtml: '&lt;meta http-equiv="Pragma" content="no-\n cache"&gt;'
+            },
+            {
+                tag: '&lt;meta&gt;',
+                name: 'meta',
+                codeExample: '&lt;meta name="rating" content="General"&gt;',
+                browserView: 'Nothing will show (Tip)',
+                exampleHtml: 'Nothing will show (Tip)',
+                codeHtml: '&lt;meta name="rating" content="General"&gt;'
+            },
+            {
+                tag: '&lt;meta&gt;',
+                name: 'meta',
+                codeExample: '&lt;meta name="robots" content="all"&gt;',
+                browserView: 'Nothing will show (Tip)',
+                exampleHtml: 'Nothing will show (Tip)',
+                codeHtml: '&lt;meta name="robots" content="all"&gt;'
+            },
+            {
+                tag: '&lt;meta&gt;',
+                name: 'meta',
+                codeExample: '&lt;meta name="robots" content="noindex, follow"&gt;',
+                browserView: 'Nothing will show (Tip)',
+                exampleHtml: 'Nothing will show (Tip)',
+                codeHtml: '&lt;meta name="robots"\n content="noindex, follow"&gt;'
+            },
+            {
+                tag: '&lt;ol&gt;',
+                name: 'ordered list',
+                codeExample: '&lt;ol&gt;&lt;li&gt;List item 1&lt;/li&gt;&lt;li&gt;List item 2&lt;/li&gt;&lt;li&gt;List item 3&lt;/li&gt;&lt;li&gt;List item 4&lt;/li&gt;&lt;/ol&gt;',
+                browserView: '1. List item 1\n2. List item 2\n3. List item 3\n4. List item 4',
+                exampleHtml: '<ol class="list-decimal list-inside"><li class="list-item">List item 1</li><li class="list-item">List item 2</li><li class="list-item">List item 3</li><li class="list-item">List item 4</li></ol>',
+                codeHtml: '&lt;ol&gt;\n &lt;li&gt;List item 1&lt;/li&gt;\n &lt;li&gt;List item 2&lt;/li&gt;\n &lt;li&gt;List item 3&lt;/li&gt;\n &lt;li&gt;List item 4&lt;/li&gt;\n &lt;/ol&gt;'
+            },
+            {
+                tag: '&lt;ol&gt;',
+                name: 'Numbered Special Start',
+                codeExample: '&lt;ol start="5"&gt;&lt;li&gt;List item 1&lt;/li&gt;&lt;li&gt;List item 2&lt;/li&gt;&lt;li&gt;List item 3&lt;/li&gt;&lt;li&gt;List item 4&lt;/li&gt;&lt;/ol&gt;',
+                browserView: '5. List item 1\n6. List item 2\n7. List item 3\n8. List item 4',
+                exampleHtml: '<ol class="list-decimal list-inside" start="5"><li class="list-item">List item 1</li><li class="list-item">List item 2</li><li class="list-item">List item 3</li><li class="list-item">List item 4</li></ol>',
+                codeHtml: '&lt;ol start="5"&gt;\n &lt;li&gt;List item 1&lt;/li&gt;\n &lt;li&gt;List item 2&lt;/li&gt;\n &lt;li&gt;List item 3&lt;/li&gt;\n &lt;li&gt;List item 4&lt;/li&gt;\n &lt;/ol&gt;'
+            },
+            {
+                tag: '&lt;p&gt;',
+                name: 'paragraph',
+                codeExample: 'This is an example displaying the use of the paragraph tag. &lt;p&gt; This will create a line break and a space between lines.',
+                browserView: 'This is an example displaying the use of the paragraph tag. This will create a line break and a space between lines.',
+                exampleHtml: '<p>This is an example displaying the use of the paragraph tag.</p><p>This will create a line break and a space between lines.</p>',
+                codeHtml: 'This is an example displaying the use of the\n paragraph tag. &lt;p&gt; This will create a line\n break and a space between lines.'
+            },
+            {
+                tag: '&lt;small&gt;',
+                name: 'small (text)',
+                codeExample: '&lt;small&gt;Example&lt;/small&gt;',
+                browserView: 'Example (Tip)',
+                exampleHtml: '<small>Example</small> (Tip)',
+                codeHtml: '&lt;small&gt;Example&lt;/small&gt;'
+            },
+            {
+                tag: '&lt;strike&gt;',
+                name: 'deleted text',
+                codeExample: '&lt;strike&gt;Example&lt;/strike&gt;',
+                browserView: 'Example',
+                exampleHtml: '<strike>Example</strike>',
+                codeHtml: '&lt;strike&gt;Example&lt;/strike&gt;'
+            },
+            {
+                tag: '&lt;strong&gt;',
+                name: 'strong emphasis',
+                codeExample: '&lt;strong&gt;Example&lt;/strong&gt;',
+                browserView: 'Example',
+                exampleHtml: '<strong>Example</strong>',
+                codeHtml: '&lt;strong&gt;Example&lt;/strong&gt;'
+            },
+            {
+                tag: '&lt;table&gt;',
+                name: 'table',
+                codeExample: '&lt;table border="4" cellpadding="2" cellspacing="2" width="100%"&gt;&lt;tr&gt;&lt;td&gt;Column 1&lt;/td&gt;&lt;td&gt;Column 2&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;',
+                browserView: 'Column 1 Column 2',
+                exampleHtml: '<table class="w-full border-4 border-collapse"><tbody><tr><td class="border p-2">Column 1</td><td class="border p-2">Column 2</td></tr></tbody></table>',
+                codeHtml: '&lt;table border="4" cellpadding="2"\n cellspacing="2" width="100%"&gt;\n &lt;tr&gt;\n &lt;td&gt;Column 1&lt;/td&gt;\n &lt;td&gt;Column 2&lt;/td&gt;\n &lt;/tr&gt;\n &lt;/table&gt;'
+            },
+            {
+                tag: '&lt;td&gt;',
+                name: 'table data',
+                codeExample: '&lt;table border="2" cellpadding=" cellspacing="2" width="100%"&gt; &lt;tr&gt; &lt;td&gt;Column 1&lt;/td&gt; &lt;td&gt;Column 2&lt;/td&gt; &lt;/tr&gt; &lt;/table&gt;',
+                browserView: 'Column 1 Column 2',
+                exampleHtml: '<table class="w-full border-2 border-collapse"><tbody><tr><td class="border p-2">Column 1</td><td class="border p-2">Column 2</td></tr></tbody></table>',
+                codeHtml: '&lt;table border="2" cellpadding="\n cellspacing="2" width="100%"&gt;\n &lt;tr&gt;\n\n\n&lt;td&gt;Column 1&lt;/td&gt;\n &lt;td&gt;Column 2&lt;/td&gt;\n &lt;/tr&gt;\n &lt;/table&gt;'
+            },
+            {
+                tag: '&lt;th&gt;',
+                name: 'table header',
+                codeExample: '<div align="center"> <table> <tr> <th>Column 1</th> <th>Column 2</th> <th>Column 3</th> </tr> <tr> <td>Row 2</td> <td>Row 2</td> <td>Row 2</td> </tr> </table> </div>',
+                browserView: 'Column 1 Column 2 Column 3\nRow 2 Row 2 Row 2',
+                exampleHtml: '<div class="text-center"><table class="w-full border-collapse"><thead><tr><th class="border p-2 bg-gray-200">Column 1</th><th class="border p-2 bg-gray-200">Column 2</th><th class="border p-2 bg-gray-200">Column 3</th></tr></thead><tbody><tr><td class="border p-2">Row 2</td><td class="border p-2">Row 2</td><td class="border p-2">Row 2</td></tr></tbody></table></div>',
+                codeHtml: '&lt;div align="center"&gt;\n &lt;table&gt;\n &lt;tr&gt;\n &lt;th&gt;Column 1&lt;/th&gt;\n &lt;th&gt;Column 2&lt;/th&gt;\n &lt;th&gt;Column 3&lt;/th&gt;\n &lt;/tr&gt;\n &lt;tr&gt;\n &lt;td&gt;Row 2&lt;/td&gt;\n &lt;td&gt;Row 2&lt;/td&gt;\n &lt;td&gt;Row 2&lt;/td&gt;\n &lt;/tr&gt;\n &lt;/table&gt;\n &lt;/div&gt;'
+            },
+            {
+                tag: '&lt;title&gt;',
+                name: 'document title',
+                codeExample: '&lt;title&gt;Title of your HTML page&lt;/title&gt;',
+                browserView: 'Title of your web page will be viewable in the title bar. (Tip)',
+                exampleHtml: 'Title of your web page will be viewable in the title bar. (Tip)',
+                codeHtml: '&lt;title&gt;Title of your HTML page&lt;/title&gt;'
+            },
+            {
+                tag: '&lt;tr&gt;',
+                name: 'table row',
+                codeExample: '&lt;table border="2" cellpadding="2" cellspacing="2" width="100%"&gt;&lt;tr&gt;&lt;td&gt;Column 1&lt;/td&gt;&lt;td&gt;Column 2&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;',
+                browserView: 'Column 1 Column 2',
+                exampleHtml: '<table class="w-full border-2 border-collapse"><tbody><tr><td class="border p-2">Column 1</td><td class="border p-2">Column 2</td></tr></tbody></table>',
+                codeHtml: '&lt;table border="2" cellpadding="2"\n cellspacing="2" width="100%"&gt;\n &lt;tr&gt;\n &lt;td&gt;Column 1&lt;/td&gt;\n &lt;td&gt;Column 2&lt;/td&gt;\n &lt;/tr&gt;\n &lt;/table&gt;'
+            },
+            {
+                tag: '&lt;tt&gt;',
+                name: 'teletype',
+                codeExample: '&lt;tt&gt;Example&lt;/tt&gt;',
+                browserView: 'Example',
+                exampleHtml: '<tt class="font-mono">Example</tt>',
+                codeHtml: '&lt;tt&gt;Example&lt;/tt&gt;'
+            },
+            {
+                tag: '&lt;u&gt;',
+                name: 'underline',
+                codeExample: '&lt;u&gt;Example&lt;/u&gt;',
+                browserView: 'Example',
+                exampleHtml: '<u>Example</u>',
+                codeHtml: '&lt;u&gt;Example&lt;/u&gt;'
+            },
+            {
+                tag: '&lt;ul&gt;',
+                name: 'unordered list',
+                codeExample: 'Example 1:<br> <ul> <li>List item 1</li> <li>List item 2</li> </ul>',
+                browserView: 'Example 1:\n• List item 1\n• List item 2',
+                exampleHtml: '<p>Example 1:</p><ul class="list-disc list-inside"><li>List item 1</li><li>List item 2</li></ul>',
+                codeHtml: 'Example 1:&lt;br&gt;\n &lt;br&gt;\n &lt;ul&gt;\n &lt;li&gt;List item 1&lt;/li&gt;\n &lt;li&gt;List item 2&lt;/li&gt;\n &lt;/ul&gt;'
+            }
+        ];
+
+        let activeRow = null;
+
+        /**
+         * Fills the main table body with rows from the tableData array.
+         * Each row is made clickable and linked to its data index.
+         */
+        function populateTable() {
+            const tableBody = document.getElementById('table-body');
+            tableData.forEach((data, index) => {
+                const row = document.createElement('tr');
+                row.classList.add('clickable-row');
+                row.dataset.index = index;
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap"><pre>${data.tag}</pre></td>
+                    <td class="px-6 py-4 whitespace-nowrap">${data.name}</td>
+                    <td class="px-6 py-4 whitespace-nowrap"><pre>${data.codeExample}</pre></td>
+                    <td class="px-6 py-4">${data.browserView}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        /**
+         * Updates the Example and Code panels with content for a specific row.
+         * @param {number} index - The index of the selected row in the tableData array.
+         */
+        function updatePanels(index) {
+            const data = tableData[index];
+            const exampleContent = document.getElementById('example-content');
+            const codeContent = document.getElementById('code-content');
+
+            // Update example content
+            exampleContent.innerHTML = data.exampleHtml;
+
+            // Update code content
+            codeContent.textContent = data.codeHtml;
+        }
+
+        /**
+         * Adds click event listeners to all table rows.
+         */
+        function addClickListeners() {
+            const tableRows = document.querySelectorAll('#table-body .clickable-row');
+            tableRows.forEach(row => {
+                row.addEventListener('click', (event) => {
+                    // Remove highlight from previous active row
+                    if (activeRow) {
+                        activeRow.classList.remove('bg-blue-100');
+                    }
+                    
+                    // Add highlight to the clicked row
+                    row.classList.add('bg-blue-100');
+                    activeRow = row;
+                    
+                    const index = parseInt(row.dataset.index, 10);
+                    updatePanels(index);
+                });
+            });
+        }
+
+        // Initialize the page on load
+        window.onload = function() {
+            populateTable();
+            addClickListeners();
+
+            // Programmatically click the first row to initialize the panels
+            const firstRow = document.querySelector('#table-body .clickable-row');
+            if (firstRow) {
+                firstRow.click();
+            }
+        };
+    </script>
 </body>
 </html>
+
