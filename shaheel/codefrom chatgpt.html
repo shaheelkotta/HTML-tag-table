@@ -44,44 +44,48 @@
     </style>
 </head>
 <body class="bg-gray-50 flex items-center justify-center min-h-screen p-4">
-    <!-- Main container matching the image layout, now with a dedicated scrollable area for the table -->
-    <div class="bg-white rounded-xl shadow-lg w-full max-w-7xl flex flex-col md:flex-row h-[90vh] overflow-hidden">
-
-        <!-- Left side - Main Table section with its own scrollbar -->
-        <div class="flex-1 flex flex-col p-6 overflow-y-auto">
-            <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">Demo Tool</h1>
-            
-            <!-- Table Container with horizontal scrolling on smaller screens -->
-            <div class="flex-1 overflow-x-auto table-container">
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50 sticky top-0">
-                        <tr>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider w-1/12">Tags</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider w-1/6">Name</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider w-1/4">Code Example</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider w-5/12">Browser View</th>
-                        </tr>
-                    </thead>
-                    <tbody id="table-body" class="bg-white divide-y divide-gray-200 text-sm text-gray-700">
-                        <!-- Table rows will be dynamically populated by JavaScript -->
-                    </tbody>
-                </table>
-            </div>
+    <!-- Main container for the application is now full width on all screen sizes -->
+    <div class="bg-white rounded-xl shadow-lg w-full max-w-full h-[90vh] overflow-hidden flex flex-col p-6">
+        <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">Demo Tool</h1>
+        
+        <!-- Table container, visible by default -->
+        <div id="table-view" class="flex-1 overflow-y-auto">
+            <table class="w-full divide-y divide-gray-200 table-fixed">
+                <thead class="bg-gray-50 sticky top-0">
+                    <tr>
+                        <th scope="col" class="px-3 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider w-1/12">Tags</th>
+                        <th scope="col" class="px-3 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider w-1/6">Name</th>
+                        <th scope="col" class="px-3 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider w-1/4">Code Example</th>
+                        <th scope="col" class="px-3 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider w-5/12">Browser View</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body" class="bg-white divide-y divide-gray-200 text-sm text-gray-700">
+                    <!-- Table rows will be dynamically populated by JavaScript -->
+                </tbody>
+            </table>
         </div>
 
-        <!-- Right side - Example and Code section (this part is now static) -->
-        <div class="w-full md:w-80 bg-gray-100 p-6 flex flex-col md:border-l border-gray-200 flex-shrink-0">
-            <h2 class="text-xl font-bold text-gray-800 mb-4">Example</h2>
-            <div id="example-content" class="bg-white rounded-lg border border-gray-300 p-4 mb-6 min-h-[100px] flex items-center justify-center">
+        <!-- Details container, hidden by default -->
+        <div id="details-view" class="hidden flex-1 flex-col overflow-y-auto">
+            <button id="back-button" class="flex items-center text-blue-500 hover:text-blue-700 font-semibold mb-4 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Back to Table
+            </button>
+            
+            <h3 class="text-lg font-bold text-gray-700 mb-2 px-3">Example</h3>
+            <div id="example-content" class="bg-gray-100 rounded-lg border border-gray-300 p-4 mb-6 min-h-[100px] flex items-center justify-center overflow-auto">
                 <!-- Example content will be dynamically updated here -->
             </div>
 
-            <h2 class="text-xl font-bold text-gray-800 mb-4">Code</h2>
-            <div class="bg-gray-200 rounded-lg border border-gray-300 p-4 font-mono text-xs text-gray-700 overflow-x-auto">
+            <h3 class="text-lg font-bold text-gray-700 mb-2 px-3">Code</h3>
+            <div id="code-content-container" class="bg-gray-200 rounded-lg border border-gray-300 p-4 font-mono text-xs text-gray-700 overflow-x-auto">
                 <pre id="code-content" class="whitespace-pre-wrap"></pre>
                 <!-- Code example will be dynamically updated here -->
             </div>
         </div>
+
     </div>
 
     <script>
@@ -578,6 +582,8 @@
         ];
 
         let activeRow = null;
+        const tableView = document.getElementById('table-view');
+        const detailsView = document.getElementById('details-view');
 
         /**
          * Fills the main table body with rows from the tableData array.
@@ -590,10 +596,10 @@
                 row.classList.add('clickable-row');
                 row.dataset.index = index;
                 row.innerHTML = `
-                    <td class="px-6 py-4 whitespace-nowrap"><pre>${data.tag}</pre></td>
-                    <td class="px-6 py-4 whitespace-nowrap">${data.name}</td>
-                    <td class="px-6 py-4 whitespace-nowrap"><pre>${data.codeExample}</pre></td>
-                    <td class="px-6 py-4">${data.browserView}</td>
+                    <td class="px-3 py-4 break-words"><pre>${data.tag}</pre></td>
+                    <td class="px-3 py-4 break-words">${data.name}</td>
+                    <td class="px-3 py-4 break-words"><pre class="whitespace-pre-wrap">${data.codeExample}</pre></td>
+                    <td class="px-3 py-4 break-words">${data.browserView}</td>
                 `;
                 tableBody.appendChild(row);
             });
@@ -603,16 +609,10 @@
          * Updates the Example and Code panels with content for a specific row.
          * @param {number} index - The index of the selected row in the tableData array.
          */
-        function updatePanels(index) {
+        function updateDetailsView(index) {
             const data = tableData[index];
-            const exampleContent = document.getElementById('example-content');
-            const codeContent = document.getElementById('code-content');
-
-            // Update example content
-            exampleContent.innerHTML = data.exampleHtml;
-
-            // Update code content
-            codeContent.textContent = data.codeHtml;
+            document.getElementById('example-content').innerHTML = data.exampleHtml;
+            document.getElementById('code-content').textContent = data.codeHtml;
         }
 
         /**
@@ -620,20 +620,24 @@
          */
         function addClickListeners() {
             const tableRows = document.querySelectorAll('#table-body .clickable-row');
+            
             tableRows.forEach(row => {
-                row.addEventListener('click', (event) => {
-                    // Remove highlight from previous active row
-                    if (activeRow) {
-                        activeRow.classList.remove('bg-blue-100');
-                    }
-                    
-                    // Add highlight to the clicked row
-                    row.classList.add('bg-blue-100');
-                    activeRow = row;
-                    
+                row.addEventListener('click', () => {
+                    // Update the details content
                     const index = parseInt(row.dataset.index, 10);
-                    updatePanels(index);
+                    updateDetailsView(index);
+
+                    // Switch pages instantly
+                    tableView.classList.add('hidden');
+                    detailsView.classList.remove('hidden');
                 });
+            });
+
+            // "Back" button listener
+            document.getElementById('back-button').addEventListener('click', () => {
+                // Switch pages instantly
+                detailsView.classList.add('hidden');
+                tableView.classList.remove('hidden');
             });
         }
 
@@ -641,14 +645,7 @@
         window.onload = function() {
             populateTable();
             addClickListeners();
-
-            // Programmatically click the first row to initialize the panels
-            const firstRow = document.querySelector('#table-body .clickable-row');
-            if (firstRow) {
-                firstRow.click();
-            }
         };
     </script>
 </body>
 </html>
-
